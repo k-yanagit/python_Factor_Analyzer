@@ -12,14 +12,3 @@ def varimax(Phi, gamma = 1.0, q = 20, tol = 1e-6):
         d = np.sum(s)
         if d_old!=0 and d/d_old < 1 + tol: break
     return np.dot(Phi, R)
-
-# 例としてランダムなデータを生成
-np.random.seed(0)
-data = np.random.rand(100, 5)
-
-# 仮に因子負荷量行列をランダムに生成（実際には因子分析の結果を使う）
-loadings = np.random.rand(5, 2)
-
-# バリマックス回転を実行
-rotated_loadings = varimax(loadings)
-print(rotated_loadings)
