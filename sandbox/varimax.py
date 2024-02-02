@@ -1,28 +1,59 @@
 import numpy as np
 
 
-def varimax(Phi, gamma = 1.0, max_itr = 100, tol = 1e-6):
+def varimax(Phi, gamma: float = 1.0, max_itr: int = 100, tol: float = 1e-6):
     """
-    description: Varimax rotation by gradient method.
+    Perform Varimax (orthogonal) rotation, with an option to adjust the gamma parameter for
+    different types of rotations (e.g., Quartimax when gamma = 0).
 
-    arg:
-        - Phi: Loadings Matrix
-        - gamma: Weight fo gradient
-        - max_itr: Maximum number of iterations
-        - tol: Tolerance error of change by gradient method
+    Args:
+        Phi (ndarray): Initial factor loading matrix (2D array: variables x factors).
+        gamma (float, optional): The weight of gradient for the rotation.
+        max_itr (int, optional): Maximum number of iterations for convergence.
+        tol (float, optional): Tolerance for convergence.
 
-    Return:
-        - Phi: Raw loadings matrix
-        - R: Rotation matrix
+    Returns:
+        ndarray: Rotation matrix.
     """
-    p,k = Phi.shape
+
+    # Get the number of variables (p) and factors (k)
+    p, k = Phi.shape
+
+    # Initialize the rotation matrix to the identity matrix
     R = np.eye(k)
-    d=0
+
+    # Initialize the cumulative explained variance
+    d = 0
+
+    # Iterate up to max_itr times
     for i in range(max_itr):
+        # Store the old explained variance
         d_old = d
+
+        # Compute the rotated factor loadings
         Lambda = np.dot(Phi, R)
-        u,s,vh = np.linalg.svd(np.dot(Phi.T,np.asarray(Lambda)**3 - (gamma/p) * np.dot(Lambda, np.diag(np.diag(np.dot(Lambda.T,Lambda))))))
-        R = np.dot(u,vh)
+
+        # Compute the matrix for singular value decomposition (SVD)
+        # The matrix is the difference between the cubic transformation of the loadings and
+        # a normalization term based on gamma
+        u, s, vh = np.linalg.svd(
+            np.dot(
+                Phi.T,
+                np.asarray(Lambda) ** 3 - (gamma / p) * np.dot(Lambda, np.diag(np.diag(np.dot(Lambda.T, Lambda))))
+            )
+        )
+
+        # Compute the rotation matrix from the SVD
+        R = np.dot(u, vh)
+
+        # Update the cumulative explained variance
         d = np.sum(s)
-        if d_old!=0 and d/d_old < 1 + tol: break
-    return np.dot(Phi, R)
+
+        # Check for convergence (if the change in explained variance is less than the tolerance)
+        if d_old != 0 and d / d_old < 1 + tol:
+            # If converged, exit the loop
+            break
+
+    # Return the rotated factor loadings
+    return R
+
