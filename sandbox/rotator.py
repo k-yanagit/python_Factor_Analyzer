@@ -1,3 +1,18 @@
+"""
+LoadingsRotator: A Python class for factor loadings rotation.
+
+This script defines the LoadingsRotator class, providing methods for orthogonal (Varimax) and
+oblique (Promax) rotations of factor loading matrices. These methods facilitate the interpretation
+of factors in exploratory factor analysis by simplifying the structure of the loadings matrix.
+
+Usage:
+Import and instantiate LoadingsRotator in your analysis script, then call the varimax or promax
+methods with a factor loadings matrix.
+
+Date: 2023.2.3
+Version: 1.0
+"""
+
 import numpy as np
 from typing import Tuple
 
