@@ -54,6 +54,5 @@ def varimax(Phi, gamma: float = 1.0, max_itr: int = 100, tol: float = 1e-6):
             # If converged, exit the loop
             break
 
-    # Return the rotated factor loadings
+    # Return the rotation matrix
     return R
-
