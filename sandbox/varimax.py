@@ -1,6 +1,20 @@
 import numpy as np
 
-def varimax(Phi, gamma = 1.0, max_itr = 20, tol = 1e-6):
+
+def varimax(Phi, gamma = 1.0, max_itr = 100, tol = 1e-6):
+    """
+    description: Varimax rotation by gradient method.
+
+    arg:
+        - Phi: Loadings Matrix
+        - gamma: Weight fo gradient
+        - max_itr: Maximum number of iterations
+        - tol: Tolerance error of change by gradient method
+
+    Return:
+        - Phi: Raw loadings matrix
+        - R: Rotation matrix
+    """
     p,k = Phi.shape
     R = np.eye(k)
     d=0
