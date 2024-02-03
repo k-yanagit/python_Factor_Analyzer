@@ -77,9 +77,9 @@ The MLE approach in Factor Analysis aims to find the factor loadings (matrix $\L
 
 3. **Iteration**:
     - **E-step (Expectation step)**:
-        - Compute the expected factor covariance matrix: $\text{factor\_cov} = \Lambda \Lambda^T + \text{diag}(\Psi)$
+        - Compute the expected factor covariance matrix: $\text{factor_cov} = \Lambda \Lambda^T + \text{diag}(\Psi)$
 
-        - Calculate its inverse: $\text{factor\_cov\_inv} = (\text{factor\_cov})^{-1}$
+        - Calculate its inverse: $\text{factor_cov_inv} = (\text{factor_cov})^{-1}$
 
     - **M-step (Maximization step)**:
         - Update factor loadings $\Lambda$: $\Lambda_{\text{new}} = S \Lambda \text{factor\_cov\_inv}$
