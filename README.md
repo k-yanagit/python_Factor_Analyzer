@@ -14,7 +14,7 @@ Solve $R$ under condition to maximize variance of $\Lambda$
 
 ### Solving Method
 I use gradient method.
-$\Lambda$s gradient is defined by
+$\Lambda$ s gradient is defined by
 $$A = \Lambda ^3 - \frac{\gamma}{p} \Lambda (diag(\Lambda ^T \Lambda)) $$
 (caution: $\Lambda ^3$ is components of $\Lambda$ to the power of 3.)
 
