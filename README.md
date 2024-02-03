@@ -28,8 +28,8 @@ $p$ is the number of variables. $\frac{1}{p}$ decreases components of $\Lambda d
 $\gamma$ is an adjustment weight.
 
 Next,I decompose  $\Phi ^{T}A$ into singular values
-$$A = U\Sigma V$$
-$U$ and $V$ show kernel of $A$, so $R = UV$ updated.
+$$A = U\Sigma V^T$$
+$U$ and $V$ show kernel of $A$, so $R = UV^T$ updated.
 
 The calculation ends when $R$ converges.
 
