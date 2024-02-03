@@ -2,6 +2,10 @@
 
 This project is to implement varimax and promax rotations in factor analysis.
 
+# Usage
+
+See programme comments.
+
 # Algorithm
 
 ## Varimax rotation
