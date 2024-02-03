@@ -78,15 +78,15 @@ The MLE approach in Factor Analysis aims to find the factor loadings (matrix $\L
 3. **Iteration**:
     - **E-step (Expectation step)**:
         - Compute the expected factor covariance matrix: $\text{factor\_cov} = \Lambda \Lambda^T + \text{diag}(\Psi)$.
-        - Calculate its inverse: $\text{factor\_cov\_inv} = \text{factor\_cov}^{-1}$.
+        - Calculate its inverse: $\text{factor\_cov\_inv} = (\text{factor\_cov})^{-1}$.
 
     - **M-step (Maximization step)**:
-        - Update factor loadings $\Lambda$: $\Lambda_{new} = S \Lambda \text{factor\_cov\_inv}$, where $S$ is the sample covariance matrix of the observed data.
-        - Update unique variances $\Psi$: $\Psi_{new} = \text{diag}(S) - \text{diag}(\Lambda_{new} \Lambda_{new}^T)$.
+        - Update factor loadings $\Lambda$: $\Lambda_{\text{new}} = S \Lambda \text{factor\_cov\_inv}$, where $S$ is the sample covariance matrix of the observed data.
+        - Update unique variances $\Psi$: $\Psi_{\text{new}} = \text{diag}(S) - \text{diag}(\Lambda_{\text{new}} \Lambda_{\text{new}}^T)$.
 
     - Check for convergence. The algorithm stops if the change in $\Lambda$ and $\Psi$ is smaller than a pre-defined tolerance level.
 
-4. **Output**:
+1. **Output**:
     - The factor loadings matrix $\Lambda$, which represents the relationship between observed variables and underlying latent factors.
     - The unique variances $\Psi$, which represent the variances in the observed variables not explained by the common factors.
     - Communalities, which represent the proportion of variance in each observed variable that is accounted for by the common factors.
