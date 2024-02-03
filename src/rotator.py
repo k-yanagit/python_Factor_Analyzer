@@ -97,12 +97,13 @@ class LoadingsRotator:
         # Perform an initial Varimax rotation
         Lambda = self.varimax(Phi)
 
-        # Compute the raised loadings
+        # Compute the raised loadings, this is loadings of hypotheses
         Phi_power = np.abs(Lambda) ** kappa
 
         # Initialize the transformation matrix
         T = np.eye(Lambda.shape[1])
 
+        # Compute loadings adapted PROMAX rotation
         # Iterate up to max_itr times
         for i in range(max_iter):
             # Store the old transformation matrix
