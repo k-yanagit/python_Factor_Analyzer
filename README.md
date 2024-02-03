@@ -27,7 +27,7 @@ Next,I decompose  $\Phi ^{T}A$ into singular values
 $$A = $U\Sigma V$
 $U$ and $V$ show kernel of $A$, so $R = UV$ updated.
 
-The calculation ends when $\R$ converges.
+The calculation ends when $R$ converges.
 
 
 ## Promax rotation
@@ -36,10 +36,10 @@ Assume promax loadings is $\Lambda ^{\kappa}$. (Defaults to 4.)
 
 I init rotation matrix $T$ that is identity matrix.
 
-$$ T_{next} = \{Lambda ^{\kappa}}^{T} \Lambda T diag(frac{1}{\{Lambda ^{\kappa}}^{T} \Lambda T})  $$
+$$ T_{next} = \({Lambda ^{\kappa}})^{T} \Lambda T diag(frac{1}{\({Lambda ^{\kappa}})^{T} \Lambda T})  $$
 
-The calculation ends when $\T_{next} - T$ converges.
-This formula is to make correlation matrix ${Lambda ^{\kappa}}^{T} \Lambda$ and adjust scale of {T}
+The calculation ends when $T_{next} - T$ converges.
+This formula is to make correlation matrix ${\Lambda^{\kappa}}^{T} \Lambda$ and adjust scale of $T$
 
 # Directory
 
