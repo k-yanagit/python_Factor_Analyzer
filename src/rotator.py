@@ -14,7 +14,6 @@ Version: 1.0
 """
 
 import numpy as np
-from typing import Tuple
 
 class LoadingsRotator:
     """
