@@ -36,10 +36,10 @@ Assume promax loadings is $\Lambda ^{\kappa}$. (Defaults to 4.)
 
 I init rotation matrix $T$ that is identity matrix.
 
-$$ T_{next} = \({L\Lambda ^{\kappa}})^{T} \Lambda T diag(\frac{1}{\({\Lambda ^{\kappa}})^{T} \Lambda T})  $$
+$$ T_{next} = \({\Lambda ^{\kappa}})^{T} \Lambda T diag(\frac{1}{\({\Lambda ^{\kappa}})^{T} \Lambda T})  $$
 
 The calculation ends when $T_{next} - T$ converges.
-This formula is to make correlation matrix ${\Lambda^{\kappa}}^{T} \Lambda$ and adjust scale of $T$
+This formula is to make correlation matrix $({\Lambda^{\kappa}})^{T} \Lambda$ and adjust scale of $T$
 
 # Directory
 
