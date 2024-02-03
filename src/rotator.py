@@ -26,7 +26,7 @@ class LoadingsRotator:
         # No initialization needed for this class as of now
         pass
 
-    def varimax(self, Phi: np.ndarray, gamma: float = 1.0, max_itr: int = 100, tol: float = 1e-6) -> np.ndarray:
+    def varimax(self, Phi: np.ndarray, gamma: float = 1.0, max_itr: int = 1000, tol: float = 1e-6) -> np.ndarray:
         """
         Perform Varimax (orthogonal) rotation, with an option to adjust the gamma parameter for
         different types of rotations (e.g., Quartimax when gamma = 0).
@@ -80,7 +80,7 @@ class LoadingsRotator:
         # Return the rotation matrix
         return R
 
-    def promax(self, Phi: np.ndarray, kappa: float = 4, max_iter: int = 100, tol: float = 1e-6) -> np.ndarray:
+    def promax(self, Phi: np.ndarray, kappa: float = 4, max_iter: int = 1000, tol: float = 1e-6) -> np.ndarray:
         """
         Perform Promax (oblique) rotation.
 
@@ -99,8 +99,6 @@ class LoadingsRotator:
 
         # Compute the raised loadings
         Phi_power = np.abs(Lambda) ** kappa
-        Phi_sign = np.sign(Lambda)
-        Phi_power_signed = Phi_power * Phi_sign
 
         # Initialize the transformation matrix
         T = np.eye(Lambda.shape[1])
@@ -114,7 +112,7 @@ class LoadingsRotator:
             pattern_matrix = np.dot(Lambda, T)
 
             # Compute the structure matrix
-            structure_matrix = np.dot(Phi_power_signed.T, pattern_matrix)
+            structure_matrix = np.dot(Phi_power.T, pattern_matrix)
 
             # Inverse the diagonal elements of the structure matrix
             inv_diag_structure = np.diag(1 / np.diag(structure_matrix))
