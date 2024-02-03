@@ -8,7 +8,7 @@ This project is to implement varimax and promax rotations in factor analysis.
 
 Give $\Phi$, is loadings matrix.
 R is rotation given by varimax rotation.
-I define Lambda is loadings matrix given by varimax rotation.
+I define $\Lambda$ is loadings matrix given by varimax rotation.
 $$\Lambda = \Phi R$$
 Solve $R$ under condition to maximize variance of $\Lambda$
 
@@ -20,7 +20,7 @@ $$A = \Lambda ^3 - \frac{\gamma}{p} \Lambda (diag(\Lambda ^T \Lambda)) $$
 
 $\Lambda ^3$ increases each component (loading) of $\Lambda$
 $diag(\Lambda ^T \Lambda)$ increases enhanced diagonal components of $\Lambda$.
-$p$ is the number of variables.$\frac{1}{p}$ decreases components of $\Lambda diag(\Lambda ^T \Lambda)$.
+$p$ is the number of variables. $\frac{1}{p}$ decreases components of $\Lambda diag(\Lambda ^T \Lambda)$.
 $\gamma$ is an adjustment weight.
 
 Next,I decompose  $\Phi ^{T}A$ into singular values
