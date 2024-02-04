@@ -1,3 +1,5 @@
+**Not yet tested.**
+
 # python_Factor_Analyzer
 
 This project is to implement methods about factor analysis.
