@@ -12,6 +12,14 @@ This project is to implement methods about factor analysis.
 
 See programme comments.
 
+# Requirement
+
+- Python 3.8 =<
+- numpy
+```
+pip install numpy
+```
+
 # Algorithm
 
 ## Rotator
